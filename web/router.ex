@@ -5,7 +5,9 @@ defmodule AddressLookupFaker.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", AddressLookupFaker do
+  scope "/pcw", AddressLookupFaker do
     pipe_through :api
+
+    get "/:searchkey/address/:country_code/search", AddressController, :index
   end
 end
